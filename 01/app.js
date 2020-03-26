@@ -43,7 +43,27 @@ console.log('app.js')
 // console.log('toString' in image);
 // log(image)
 
-var arr = { a:1};
+// var arr = { a:1};
 
-console.log(arr instanceof Object); //true
+// console.log(arr instanceof Object); //true
+
+
+let age = 20;
+log(age);
+let isWorking = false;
+log(isWorking)
+log(typeof isWorking)
+let month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+log(month)
+
+let jinoo = {
+  age : 25,
+  gender : "Male",
+  name : "LEE JIN WOO",
+  homeworkCount : {
+    kakaotrack : 1,
+    blockchain : 3
+  }
+}
+log(jinoo)
 
