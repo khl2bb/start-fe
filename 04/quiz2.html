@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>quiz2</title>
+</head>
+<body>
+
+<div id="board">
+    
+      <!-- <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>   
+      <span class="white"></span>
+      <span class="black"></span>
+      <span class="white"></span>
+      <span class="black"></span> -->
+    
+</div>
+<style>
+    .black {
+        background-color: black;
+        width:150px;
+        height:150px;
+    }
+    .white {
+        background-color: white;
+        width:150px;
+        height:150px;
+    }
+    .floor {
+        display: flex;
+    }
+    .wrapper {
+        border:5px solid #bdc3c7; 
+        width:600px;
+        margin:auto;
+    }
+    #board {
+        width:600px;
+    }
+</style>
+<script>
+    var board = document.getElementById("board");
+
+    function drawBoard() {
+        str = "";
+        str += '<div class="wrapper">'
+        for(var i=0; i<2; i++){
+            str += '<div class="floor"><div id="' + (i*7 + i+1) + '" class="black"> </div> <div id="' + (i*7 + i+2) + '" class="white"> </div> <div id="' + (i*7 + i+3) + '" class="black"> </div> <div id="' + (i*7 + i+4) + '" class="white"> </div> </div>';
+            str += '<div class="floor"><div id="' + (i*7 + i+5) + '" class="white"> </div> <div id="' + (i*7 + i+6) + '" class="black"> </div> <div id="' + (i*7 + i+7) + '" class="white"> </div> <div id="' + (i*7 + i+8) + '" class="black"> </div> </div>';
+        }
+        str += '</div>'
+        board.innerHTML = str;
+    }
+    
+    function log(str) {
+        console.log(str);
+    }
+
+    drawBoard();
+
+    board.addEventListener("click", function(event) {
+        // log(event)
+        if(tempId = event.target.id){
+            drawBoard();
+            let targetBox = document.getElementById(tempId);
+            targetBox.style="background-color:red";
+        }  
+    });
+
+    // 마우스 클릭이 제대로 안 이루어질때
+    board.addEventListener("mouseup", function(event) {
+        if(tempId = event.target.id){
+            drawBoard();
+            let targetBox = document.getElementById(tempId);
+            targetBox.style="background-color:red";
+        }
+    });
+
+</script>
+</body>
+</html>
