@@ -1,66 +1,67 @@
 let count = 1;
-    var todayPhoto = [
-        {"url":"http://media.daum.net/photo/2841","img":"http://icon.daumcdn.net/w/c/12/05/82877085750988319.jpeg","title":"&quot;뜨면 끝장&quot; 최강 공격헬기 성능이 설마","id":"20120516082207657"}
-        ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100320","img":"http://icon.daumcdn.net/w/c/12/05/82876693901189319.jpeg","title":"&#39;오늘만&#39; 필리핀 새댁 5개국어 능통 엄친딸","id":"20120516091011626"}
-        ,{"url":"http://media.daum.net/photo/4010","img":"http://icon.daumcdn.net/w/c/12/05/82876307459008319.jpeg","title":"[북한 결혼식 풍경] 신랑·신부 &quot;행복합니다&quot;","id":"20120516092605081"}
-        ,{"url":"http://sports.media.daum.net/general/gallery/gagsports/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81730673405131839.jpeg","title":"&#39;내가 더 잘해&#39; 후보GK 경기 난입해 선방","id":"20120516100608409"}
-        ,{"url":"http://sports.media.daum.net/general/gallery/0516ufc/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81728759258718839.jpeg","title":"양동이의 하이킥에 타바레스 &#39;주춤&#39;","id":"20120516093313331"}
-        ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100539","img":"http://icon.daumcdn.net/w/c/12/05/81728404408992839.jpeg","title":"이승철 아내와 딸 사진 공개 &quot;사주에. .&quot;","id":"20120516093918544"}
-        ,{"url":"http://media.daum.net/photo/3899","img":"http://icon.daumcdn.net/w/c/12/05/81728227037306839.jpeg","title":"생후 6개월에 프랑스로 입양됐던 아이가..","id":"20120516030614331"}
-        ,{"url":"http://sports.media.daum.net/general/gallery/STARKIMYUNA/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81727815537682839.jpeg","title":"&#39;교생&#39; 김연아, 스승의날에도 인기폭발","id":"20120516092003892"}
-    ];
-    var wrap = document.getElementById('wrap');
-    let arrowLeft = document.getElementById('arrowLeft');
-    let arrowRight = document.getElementById('arrowRight');
-    let navNum = document.getElementById('navNum');
+var todayPhoto = [
+    {"url":"http://media.daum.net/photo/2841","img":"http://icon.daumcdn.net/w/c/12/05/82877085750988319.jpeg","title":"&quot;뜨면 끝장&quot; 최강 공격헬기 성능이 설마","id":"20120516082207657"}
+    ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100320","img":"http://icon.daumcdn.net/w/c/12/05/82876693901189319.jpeg","title":"&#39;오늘만&#39; 필리핀 새댁 5개국어 능통 엄친딸","id":"20120516091011626"}
+    ,{"url":"http://media.daum.net/photo/4010","img":"http://icon.daumcdn.net/w/c/12/05/82876307459008319.jpeg","title":"[북한 결혼식 풍경] 신랑·신부 &quot;행복합니다&quot;","id":"20120516092605081"}
+    ,{"url":"http://sports.media.daum.net/general/gallery/gagsports/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81730673405131839.jpeg","title":"&#39;내가 더 잘해&#39; 후보GK 경기 난입해 선방","id":"20120516100608409"}
+    ,{"url":"http://sports.media.daum.net/general/gallery/0516ufc/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81728759258718839.jpeg","title":"양동이의 하이킥에 타바레스 &#39;주춤&#39;","id":"20120516093313331"}
+    ,{"url":"http://media.daum.net/entertain/photo/gallery/?gid=100539","img":"http://icon.daumcdn.net/w/c/12/05/81728404408992839.jpeg","title":"이승철 아내와 딸 사진 공개 &quot;사주에. .&quot;","id":"20120516093918544"}
+    ,{"url":"http://media.daum.net/photo/3899","img":"http://icon.daumcdn.net/w/c/12/05/81728227037306839.jpeg","title":"생후 6개월에 프랑스로 입양됐던 아이가..","id":"20120516030614331"}
+    ,{"url":"http://sports.media.daum.net/general/gallery/STARKIMYUNA/index.html","img":"http://icon.daumcdn.net/w/c/12/05/81727815537682839.jpeg","title":"&#39;교생&#39; 김연아, 스승의날에도 인기폭발","id":"20120516092003892"}
+];
+var wrap = document.getElementById('wrap');
+let arrowLeft = document.getElementById('arrowLeft');
+let arrowRight = document.getElementById('arrowRight');
+let navNum = document.getElementById('navNum');
+let pageLeastNum = 1; // 최소 페이지
+let pageMaxNum = 3; // 최대 페이지
+let pageLength = 3; // 페이지 당 사진 개수
+let totalPhotoNum = todayPhoto.length;
 
-    function log(str) {
-        console.log(str);
+function log(str) {
+    console.log(str);
+}
+
+function arrowLeftClick() {
+    if(count > pageLeastNum) {
+        count--;
+        // log(count);
+        drawImages(count)
     }
-
-    function arrowLeftClick() {
-        if(count > 1) {
-            count--;
-            // log(count);
-            drawImages()
-        }
+}
+function arrowRightClick() {
+    if(count < pageMaxNum) {
+        count++;
+        // log(count);
+        drawImages(count)
     }
-    function arrowRightClick() {
-        if(count < 3) {
-            count++;
-            // log(count);
-            drawImages()
+}
+
+// 012
+// 345
+// 678
+
+function drawImages(count) {
+    if(count !== Math.ceil(totalPhotoNum/pageLength)){
+        var str = '';
+        for(var i= (count -1) * pageLength; i< count * pageLength; i++){
+            str += '<div class="imageBox" ><img src="'+todayPhoto[i].img+'" class = "image">  <div class="imageTitle">' + todayPhoto[i].title + "</div></div>";
         }
+        wrap.innerHTML = str;
+        navNum.innerHTML = count.toString() +" / "+ pageMaxNum.toString()
     }
-
-    function drawImages() {
-        if(count === 1) {
-            var str = '';
-            for(var i=count*3 -3; i<count*3; i++){
-                str += '<div class="imageBox" ><img src="'+todayPhoto[i].img+'" class = "image">  <div class="imageTitle">' + todayPhoto[i].title + "</div></div>";
-            }
-            wrap.innerHTML = str;
-            navNum.innerHTML = "1 / 3"
+    
+    else if(count === Math.ceil(totalPhotoNum/pageLength)) {
+        var str = '';
+        for(var i= (count -1) * pageLength; i< totalPhotoNum; i++){
+            str += '<div class="imageBox" ><img src="'+todayPhoto[i].img+'" class = "image">  <div class="imageTitle">' + todayPhoto[i].title + "</div></div>";
         }
-        if(count === 2) {
-            var str = '';
-            for(var i=count*3 -3; i<count*3; i++){
-                str += '<div class="imageBox" ><img src="'+todayPhoto[i].img+'" class = "image">  <div class="imageTitle">' + todayPhoto[i].title + "</div></div>";
-            }
-            wrap.innerHTML = str;
-            navNum.innerHTML = "2 / 3"
-        }
-        if(count === 3) {
-            var str = '';
-            for(var i=6; i<8; i++){
-                str += '<div class="imageBox" ><img src="'+todayPhoto[i].img+'" class = "image">  <div class="imageTitle">' + todayPhoto[i].title + "</div></div>";
-            }
-            wrap.innerHTML = str;
-            navNum.innerHTML = "3 / 3"
-        }
+        wrap.innerHTML = str;
+        navNum.innerHTML = count.toString() +" / "+ pageMaxNum.toString()
     }
+}
 
-    drawImages();
-
-    arrowLeft.addEventListener("click", arrowLeftClick);
-    arrowRight.addEventListener("click", arrowRightClick);
+drawImages(pageLeastNum);
+// log(Math.ceil(totalPhotoNum/pageLength));
+arrowLeft.addEventListener("click", arrowLeftClick);
+arrowRight.addEventListener("click", arrowRightClick);
