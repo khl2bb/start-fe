@@ -26,11 +26,11 @@ board.addEventListener("click", function(event) {
     }  
 });
 
-// 마우스 클릭이 제대로 안 이루어질때
-board.addEventListener("mouseup", function(event) {
-    if(tempId = event.target.id){
-        drawBoard();
-        let targetBox = document.getElementById(tempId);
-        targetBox.style="background-color:red";
-    }
-});
+// // 마우스 클릭이 제대로 안 이루어질때
+// board.addEventListener("mouseup", function(event) {
+//     if(tempId = event.target.id){
+//         drawBoard();
+//         let targetBox = document.getElementById(tempId);
+//         targetBox.style="background-color:red";
+//     }
+// });
