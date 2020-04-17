@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이진우 quiz 4</title>
+  </head>
+  <style>
+    body{
+      /* body를 화면 꽉 차게 */
+      width:100vw;
+      height:100vh;
+    }
+    #box{
+      /* 박스 크기 설정, absolute 설정, 배경색, 폰트, 텍스트 가운데 정렬 */
+      width:150px;
+      height:150px;
+      position: absolute;
+      background-color: #d8d8d8;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div id="box">
+      Drag me!
+    </div>
+    <ol>
+      <li>박스를 누르면 드래그가 시작됩니다 (mousedown 이벤트)</li>
+      <li>
+        마우스가 눌린 상태로 마우스를 움직이면 박스가 마우스 커서를 따라
+        움직입니다 (mousemove 이벤트)
+      </li>
+      <li>클릭을 해제하면 드래그가 멈춥니다 (mouseup 이벤트)</li>
+    </ol>
+    <script src="quiz4.js"></script>
+  </body>
+</html>
