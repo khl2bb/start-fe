@@ -9,11 +9,10 @@ function printNineTimesTable() { // 구구단 출력 함수
         alert("양의 정수를 입력해주세요.") // alert
     }
     else { // 입력 받은 값이 양의 정수이면
-        divString = '<div id="result">'; // #result div 내용 설정
+        divString = ''; // 구구단이 될 엘리먼트 문자열
         for(i=1; i<10; i++) { // i가 1부터 9까지
             divString += `<div>${numToPrint} * ${i} = ${numToPrint*i}</div>`; // 구구단 문자열 추가
         }
-        divString += '</div>' // #result div 닫기 (/div)
         $resultSpace.innerHTML = divString; // 결과 공간을 divString 으로
     }
 }
