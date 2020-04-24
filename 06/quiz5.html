@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이진우 quiz 5</title>
+    <style>
+      .box{ /* 박스 크기 설정, absolute 설정, 배경색, 가운데 정렬 */
+        position: absolute;
+        left: 100px;
+        top: 300px;
+        width: 100px;
+        height: 100px;
+        background-color: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .box1 {
+        left: 300px;
+      }
+      ul {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      Drag me!
+    </div>
+    <div class="box box1">
+      Drag me!
+    </div>
+
+    <ol>
+      <li>박스를 누르면 드래그가 시작됩니다 (mousedown 이벤트)</li>
+      <li>
+        마우스가 눌린 상태로 마우스를 움직이면 박스가 마우스 커서를 따라
+        움직입니다 (mousemove 이벤트)
+      </li>
+      <li>클릭을 해제하면 드래그가 멈춥니다 (mouseup 이벤트)</li>
+      <li>
+        박스가 여러개이므로 함수가 코드 재활용이 잘 되도록 작성 해야 합니다
+      </li>
+    </ol>
+    <ol>
+      <ul>주어진 과제는 달성하였지만 문제점이 있습니다.</ul>
+      <ul>2번째로 만들어진 div는 드래그 하면서, 1번째 div 위로 그려질 수 있는데</ul>
+      <ul>1번째 div는 2번째 div를 드래그로 통과할 수 없습니다.</ul>
+      <ul>해결 방법으로는 target div의 우선순위를 올리는 방법이 있겠습니다.</ul>
+    </ol>
+    <script src="quiz5.js"></script>
+  </body>
+</html>
