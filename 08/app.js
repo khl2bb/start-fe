@@ -8,8 +8,6 @@ promise.then(res => {
 
     textPromise.then((
         data => console.log(data)
-
-
     ));
 })
 console.log(d)
