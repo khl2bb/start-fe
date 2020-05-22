@@ -1,0 +1,7 @@
+GET https://dapi.kakao.com/v2/search/web?query=rainbowsix
+content-type: application/json
+
+{
+ "Authorization": "KakaoAK c1b0e77ee7738bbe54e18ca7e0c35eee"
+}
+
