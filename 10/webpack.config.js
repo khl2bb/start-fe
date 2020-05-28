@@ -10,6 +10,7 @@ module.exports = {
     contentBase: './dist',
   },
   plugins: [new HtmlWebpackPlugin({
+      template: './src/index.html',
       
   })]
 }
