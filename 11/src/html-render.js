@@ -1,6 +1,10 @@
+/* eslint-disable indent */
+import { saveData } from './data-manager';
+
 const $result = document.querySelector('#result');
 
 function render(data) {
+  saveData(data);
   const html = data.map(
     (todo, index) => `<li data-index="${index}">
           <button class="delete">×</button>
